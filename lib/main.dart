@@ -3,8 +3,18 @@ import 'package:namer_app/pages/my_home_page.dart';
 import 'package:namer_app/provider/my_app_state.dart';
 import 'package:provider/provider.dart';
 
+import 'package:device_preview/device_preview.dart';
+
 void main() {
-  runApp(MyApp());
+  runApp(
+    DevicePreview(
+      enabled: true,
+        tools: const [
+          ...DevicePreview.defaultTools,
+        ],
+      builder: (context) => MyApp(), // Wrap your app
+    )
+  );
 }
 
 class MyApp extends StatelessWidget {
